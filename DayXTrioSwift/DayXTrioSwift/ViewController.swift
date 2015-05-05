@@ -42,8 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func addEntry() {
         
-        self.presentViewController(DetailViewController(), animated: true, completion: nil)
-        
+        self.navigationController?.pushViewController(DetailViewController(), animated: true)        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
