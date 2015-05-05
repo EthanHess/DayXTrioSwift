@@ -45,7 +45,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         clearButton.setTitle("Clear All", forState: UIControlState.Normal)
         clearButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         clearButton.backgroundColor = UIColor.redColor()
-        clearButton.sizeToFit()
         clearButton.addTarget(self, action: "clearAll", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(clearButton)
     }
