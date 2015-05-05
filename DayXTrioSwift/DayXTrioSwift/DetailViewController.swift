@@ -25,6 +25,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
         self.setsViews()
         self.tapDismiss()
+        self.saveBarButtonItem()
         
     }
     
@@ -53,6 +54,18 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
         entryTitle.text = ""
         entryView.text = ""
+    }
+    
+    func saveBarButtonItem() {
+        
+        saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveEntry")
+        navigationItem.rightBarButtonItem = saveButton
+        
+    }
+    
+    func saveEntry() {
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func tapDismiss() {
