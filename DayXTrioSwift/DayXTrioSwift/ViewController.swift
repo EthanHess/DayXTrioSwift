@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView = UITableView()
+    var addButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
         self.view.addSubview(tableView)
-
+        
+        self.setUpBarButtonItem()
+        
+    }
+    
+    func setUpBarButtonItem() {
+        
+        addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addEntry")
+        navigationItem.rightBarButtonItem = addButton
+        
+    }
+    
+    func addEntry() {
+        
+        self.presentViewController(DetailViewController(), animated: true, completion: nil)
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         println("Hey")
+
         
     }
     

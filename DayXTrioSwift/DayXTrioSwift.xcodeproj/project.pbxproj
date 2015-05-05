@@ -13,6 +13,7 @@
 		27D423C21AF81CE00099F224 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D423C11AF81CE00099F224 /* Images.xcassets */; };
 		27D423C51AF81CE00099F224 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D423C31AF81CE00099F224 /* LaunchScreen.xib */; };
 		27D423D11AF81CE00099F224 /* DayXTrioSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D423D01AF81CE00099F224 /* DayXTrioSwiftTests.swift */; };
+		27D424211AF9595B0099F224 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D424201AF9595B0099F224 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		27D423CA1AF81CE00099F224 /* DayXTrioSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayXTrioSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D423CF1AF81CE00099F224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D423D01AF81CE00099F224 /* DayXTrioSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayXTrioSwiftTests.swift; sourceTree = "<group>"; };
+		27D424201AF9595B0099F224 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				27D423BA1AF81CE00099F224 /* AppDelegate.swift */,
 				27D423BC1AF81CE00099F224 /* ViewController.swift */,
+				27D424201AF9595B0099F224 /* DetailViewController.swift */,
 				27D423BE1AF81CE00099F224 /* Main.storyboard */,
 				27D423C11AF81CE00099F224 /* Images.xcassets */,
 				27D423C31AF81CE00099F224 /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D424211AF9595B0099F224 /* DetailViewController.swift in Sources */,
 				27D423BD1AF81CE00099F224 /* ViewController.swift in Sources */,
 				27D423BB1AF81CE00099F224 /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +415,7 @@
 				27D423D61AF81CE00099F224 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		27D423D71AF81CE00099F224 /* Build configuration list for PBXNativeTarget "DayXTrioSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				27D423D91AF81CE00099F224 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
