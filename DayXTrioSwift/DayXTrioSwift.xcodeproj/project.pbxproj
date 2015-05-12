@@ -14,7 +14,10 @@
 		27D423C51AF81CE00099F224 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27D423C31AF81CE00099F224 /* LaunchScreen.xib */; };
 		27D423D11AF81CE00099F224 /* DayXTrioSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D423D01AF81CE00099F224 /* DayXTrioSwiftTests.swift */; };
 		27D424211AF9595B0099F224 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D424201AF9595B0099F224 /* DetailViewController.swift */; };
-		27D424231AF968840099F224 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D424221AF968840099F224 /* Entry.swift */; };
+		27D426801B02ACCF0099F224 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D4267F1B02ACCF0099F224 /* Stack.swift */; };
+		27D426831B02AD1A0099F224 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D426811B02AD1A0099F224 /* Model.xcdatamodeld */; };
+		27D426871B02ADA70099F224 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D426861B02ADA70099F224 /* EntryController.swift */; };
+		27D4268C1B02AE6D0099F224 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D4268B1B02AE6D0099F224 /* Entry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,10 @@
 		27D423CF1AF81CE00099F224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D423D01AF81CE00099F224 /* DayXTrioSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayXTrioSwiftTests.swift; sourceTree = "<group>"; };
 		27D424201AF9595B0099F224 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		27D424221AF968840099F224 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		27D4267F1B02ACCF0099F224 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		27D426821B02AD1A0099F224 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		27D426861B02ADA70099F224 /* EntryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
+		27D4268B1B02AE6D0099F224 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = ../Entry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +90,10 @@
 				27D423BA1AF81CE00099F224 /* AppDelegate.swift */,
 				27D423BC1AF81CE00099F224 /* ViewController.swift */,
 				27D424201AF9595B0099F224 /* DetailViewController.swift */,
-				27D424221AF968840099F224 /* Entry.swift */,
+				27D426811B02AD1A0099F224 /* Model.xcdatamodeld */,
+				27D426861B02ADA70099F224 /* EntryController.swift */,
+				27D4268B1B02AE6D0099F224 /* Entry.swift */,
+				27D4267F1B02ACCF0099F224 /* Stack.swift */,
 				27D423BE1AF81CE00099F224 /* Main.storyboard */,
 				27D423C11AF81CE00099F224 /* Images.xcassets */,
 				27D423C31AF81CE00099F224 /* LaunchScreen.xib */,
@@ -218,8 +227,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27D424231AF968840099F224 /* Entry.swift in Sources */,
+				27D4268C1B02AE6D0099F224 /* Entry.swift in Sources */,
+				27D426871B02ADA70099F224 /* EntryController.swift in Sources */,
+				27D426801B02ACCF0099F224 /* Stack.swift in Sources */,
 				27D424211AF9595B0099F224 /* DetailViewController.swift in Sources */,
+				27D426831B02AD1A0099F224 /* Model.xcdatamodeld in Sources */,
 				27D423BD1AF81CE00099F224 /* ViewController.swift in Sources */,
 				27D423BB1AF81CE00099F224 /* AppDelegate.swift in Sources */,
 			);
@@ -350,9 +362,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DayXTrioSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -360,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DayXTrioSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,6 +446,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27D426811B02AD1A0099F224 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27D426821B02AD1A0099F224 /* Model.xcdatamodel */,
+			);
+			currentVersion = 27D426821B02AD1A0099F224 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 27D423AD1AF81CDF0099F224 /* Project object */;
 }
