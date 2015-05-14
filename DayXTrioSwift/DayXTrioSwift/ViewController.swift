@@ -33,6 +33,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        self.tableView.reloadData()
+    }
+    
     func setUpBarButtonItem() {
         
         addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addEntry")
@@ -47,14 +52,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return entryTitleArray.count
+        return EntryController.sharedInstance.entries.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
         
-        cell.textLabel?.text = self.entryTitleArray[indexPath.row]
+        let entry = EntryController.sharedInstance.entries[indexPath.row]
+        cell.textLabel?.text = entry.title
         
         return cell
         
@@ -62,12 +68,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        println("Hey")
-
+        let detailViewController = DetailViewController.new()
+        
+        detailViewController.entry = EntryController.sharedInstance.entries[indexPath.row]
+        
+//        detailViewController.updateWithEntry(EntryController.sharedInstance.entries[indexPath.row])
+        
+        self.navigationController?.pushViewController(DetailViewController(), animated: true)
+        
         
     }
     
-    var entryTitleArray: [String] = ["Entry 1", "Entry 2", "Entry 3", "Entry 4", "Entry 5"]
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            
+            EntryController.sharedInstance.removeEntry(EntryController.sharedInstance.entries[indexPath.row])
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

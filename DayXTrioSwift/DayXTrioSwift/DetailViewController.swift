@@ -11,6 +11,8 @@ import UIKit
 
 class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    var entry: Entry!
+    
     var entryTitle = UITextField()
     var entryView = UITextView()
     var clearButton = UIButton()
@@ -23,9 +25,15 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
         self.view.backgroundColor = UIColor.lightGrayColor()
         
+        
+        if let entry = self.entry {
+            self.updateWithEntry(entry)
+        }
+        
         self.setsViews()
         self.tapDismiss()
         self.saveBarButtonItem()
+        
         
     }
     
@@ -62,7 +70,28 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
     }
     
+    func updateWithEntry(entry : Entry) {
+       
+        self.entryTitle.text = entry.title
+        self.entryView.text = entry.text
+        
+    }
+    
     func saveEntry() {
+        
+        if let entry = self.entry {
+            
+            self.entry?.title = self.entryTitle.text
+            self.entry?.text = self.entryView.text
+            self.entry?.date = NSDate()
+            
+            EntryController.sharedInstance.save()
+        }
+        
+        else {
+            
+            EntryController.sharedInstance.createEntryWithDetails(self.entryTitle.text, text: self.entryView.text, date: NSDate())
+        }
         
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
@@ -85,12 +114,6 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         
     }
     
-//    func textViewShouldEndEditing(textView: UITextView) -> Bool {
-//        
-//        textView.resignFirstResponder()
-//        
-//        return true
-//    }
 }
 
 
